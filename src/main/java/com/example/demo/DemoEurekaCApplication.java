@@ -23,9 +23,15 @@ public class DemoEurekaCApplication {
     public String home(@RequestParam String name) {
         return "hi "+name+",i am from port:" +port;
     }
+    @Value("${name}")
+    private  String name2;
+    @Value("${age}")
+    private  String age;
+    @Value("${version}")
+    private  String version="test";
     
     @RequestMapping("/hello")
     public String helloTest(@RequestParam String name) {
-        return "hello "+name+",i am from port:" +port;
+        return "hello "+name+",i am"+name2+" from port:" +port+" I'm "+age+" years old (version:"+version+")";
     }
 }
